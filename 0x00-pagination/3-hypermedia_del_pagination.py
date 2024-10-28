@@ -61,15 +61,14 @@ class Server:
         if index is None:
             index = 0
 
-        start_index = max(0, index)
-        end_index = min(start_index + page_size, total_records)
+        start_in = max(0, index)
+        end_in = min(start_in + page_size, total_records)
 
-        data = [indexed_dataset[i] for i in range(start_index, end_index)]
-        next_index = (start_index + page_size)
-        if end_index < total_records else None
+        data = [indexed_dataset[i] for i in range(start_in, end_in)]
+        next_index = (start_in + page_size) if end_in < total_records else None
 
         return {
-            "index": start_index,
+            "index": start_in,
             "data": data,
             "page_size": page_size,
             "next_index": next_index,
