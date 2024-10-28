@@ -3,6 +3,7 @@
  index_range function that takes two integer arguments page and page_size
 """
 
+
 def index_range(page, page_size):
     """
     Returns: tuple: A tuple containing the
