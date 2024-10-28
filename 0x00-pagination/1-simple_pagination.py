@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Server class to paginate a database of popular baby names."""
 
+
 import csv
 import math
 from typing import List
@@ -31,17 +32,17 @@ class Server:
 
         Args:
             page (int, optional): The page number to retrieve. Defaults to 1.
-            page_size (int, optional): The number of items per page. Defaults to 10.
+            page_size (int, optional): The items per page. Defaults to 10.
 
         Raises:
-            AssertionError: If page or page_size is not an integer greater than 0.
+            AssertionError: If page or pag is not an integer greater than 0.
 
         Returns:
             List[List]: A list of rows representing the requested page.
         """
 
-        assert isinstance(page, int) and page > 0, "page must be a positive integer"
-        assert isinstance(page_size, int) and page_size > 0, "page_size must be a positive integer"
+        assert isinstance(page, int) and page > 0, "must be a positive integer"
+        assert isinstance(page_size, int) and page_size > 0, "must be positive"
 
         dataset = self.dataset()
         total_records = len(dataset)
@@ -55,10 +56,10 @@ class Server:
         return dataset[start_index:end_index]
 
 
-# Assuming index_range function is defined elsewhere (implement based on your needs)
+# Assuming index_range function is defined elsewhere (implement based on your
 def index_range(page: int, page_size: int, total_records: int) -> tuple:
     """
-    Calculates the start and end index for pagination based on page, page_size, and total records.
+    Calculates the start and end index for pagination based on page, page_size.
 
     Args:
         page (int): The page number.
@@ -66,10 +67,9 @@ def index_range(page: int, page_size: int, total_records: int) -> tuple:
         total_records (int): The total number of records in the dataset.
 
     Returns:
-        tuple: A tuple containing the start and end index for the requested page.
+        tuple: A tuple containing the start and end index for the requested.
     """
-    # Implement logic to calculate start and end index based on page, page_size, and total_records
-    # This function is not provided in the prompt, but you'll need to implement it based on your specific needs.
+    # Implement logic to calculate start and end index based on page,
     pass
 
 
