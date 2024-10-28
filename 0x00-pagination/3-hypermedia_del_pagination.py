@@ -37,12 +37,12 @@ class Server:
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """
-        Returns a dictionary containing hypermedia information for paginated data,
+        Returns a dictionary containing hypermedia information for paginated
         resilient to deletions between requests.
 
         Args:
-            index (int, optional): The starting index for pagination. Defaults to None.
-            page_size (int, optional): The number of items per page. Defaults to 10.
+            index (int, optional): The starting index for pagination. Defaults
+            page_size (int, optional): The number of items per page. Defaults.
 
         Raises:
             AssertionError: If index is out of range.
@@ -65,7 +65,8 @@ class Server:
         end_index = min(start_index + page_size, total_records)
 
         data = [indexed_dataset[i] for i in range(start_index, end_index)]
-        next_index = (start_index + page_size) if end_index < total_records else None
+        next_index = (start_index + page_size)
+        if end_index < total_records else None
 
         return {
             "index": start_index,
@@ -101,7 +102,7 @@ if __name__ == "__main__":
     del server._Server__indexed_dataset[res.get("index")]
     print("Nb items: {}".format(len(server._Server__indexed_dataset)))
 
-    # 4- request again the initial index -> the first data retrieved is not the same as the first request
+    # 4- request again the initial index -> the first data retrieved is not
     print(server.get_hyper_index(index, page_size))
 
     # 5- request again initial next index -> same data page as the request 2-
